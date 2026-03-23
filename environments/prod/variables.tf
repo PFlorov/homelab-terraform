@@ -4,12 +4,21 @@ variable "cloudflare_zone_id" {
   type        = string
 }
 
-variable "cloudflare_tunnel_target" {
-  description = "Cloudflare tunnel target hostname"
-  type        = string
-}
 
 variable "github_owner" {
   description = "Github owner of the repos"
   type        = string
+}
+
+
+variable "dns_records" {
+  description = "Map of cloudflare dns records"
+  type = map(object({
+    name    = string
+    type    = string
+    content = string
+    ttl     = number
+    proxied = bool
+
+  }))
 }
