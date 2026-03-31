@@ -1,27 +1,37 @@
 # homelab-terraform
 
 Terraform configuration for managing supporting infrastructure for my
-personal homelab, starting with Cloudflare DNS and GitHub resources.
+personal homelab.
+
+This repository is part of my DevOps learning journey and is used to
+practice Infrastructure as Code with real services I already use, starting
+with Cloudflare DNS and GitHub resources.
 
 ## Overview
 
-This repository is part of my DevOps learning journey and is used to
-practice Infrastructure as Code with real services I already use in my
-homelab setup.
+The goal of this repository is to manage external supporting services for
+my homelab in a declarative and reusable way.
 
-The initial scope includes:
+Current scope:
 - Cloudflare DNS records
-- GitHub repository management
+- GitHub repositories
+
+This repository is intentionally separate from my Kubernetes GitOps and
+Ansible automation repositories. The idea is to keep Terraform focused on
+external infrastructure and platform-related SaaS configuration, while
+cluster state and node automation are managed elsewhere.
 
 ## Goals
 
 - Learn Terraform fundamentals with real infrastructure
 - Practice modular Terraform project structure
-- Manage external homelab-related resources as code
-- Build reusable IaC patterns for future expansion
+- Manage homelab-related services as code
+- Build reusable Infrastructure as Code patterns
+- Develop safer habits around changes, state, and refactoring
 
 ## Repository Structure
 
+```text
 .
 ├── environments/
 │   └── prod/
@@ -30,6 +40,17 @@ The initial scope includes:
 │       ├── providers.tf
 │       ├── variables.tf
 │       └── versions.tf
-└── modules/
-    ├── cloudflare_dns_record/
-    └── github_repository/
+├── modules/
+│   ├── cloudflare_dns_record/
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── variables.tf
+│   │   └── versions.tf
+│   └── github_repository/
+│       ├── main.tf
+│       ├── outputs.tf
+│       ├── variables.tf
+│       └── versions.tf
+├── .gitignore
+├── LICENSE
+└── README.md
