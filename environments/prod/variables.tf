@@ -22,3 +22,8 @@ variable "dns_records" {
 
   }))
 }
+
+variable "github_push_users" {
+  description = "List of users who can push to protected branches"
+  type        = list(string)
+}

@@ -11,10 +11,18 @@ module "dns_records" {
   proxied = each.value.proxied
 }
 
-module "iac-tr-playground" {
+module "iac_tr_playground" {
   source = "../../modules/github_repository"
 
   name        = "tf-github-lab"
   description = "repo created by tf"
   visibility  = "public"
+}
+
+module "branch_protection" {
+  source = "../../modules/github_branch_protection"
+
+  repository = module.iac_tr_playground.full_name
+  branch     = "main"
+  users      = var.github_push_users
 }
