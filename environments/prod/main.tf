@@ -22,7 +22,7 @@ module "iac_tr_playground" {
 module "branch_protection" {
   source = "../../modules/github_branch_protection"
 
-  repository = module.iac_tr_playground.full_name
-  branch     = "main"
-  users      = var.github_push_users
+  repository_id = module.iac_tr_playground.node_id
+  pattern       = "main"
+  review_count  = 1
 }
