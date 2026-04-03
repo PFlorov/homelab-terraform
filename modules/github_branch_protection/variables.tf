@@ -1,6 +1,6 @@
 variable "repository_id" {
   description = "Name of the github repo for branch protection"
-  type        = string
+  type = string
 }
 
 variable "users" {

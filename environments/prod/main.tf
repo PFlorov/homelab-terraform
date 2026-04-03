@@ -12,17 +12,19 @@ module "dns_records" {
 }
 
 module "iac_tr_playground" {
-  source = "../../modules/github_repository"
+  for_each = var.iac_tr_playground
+  source   = "../../modules/github_repository"
 
-  name        = "tf-github-lab"
-  description = "repo created by tf"
-  visibility  = "public"
+  name        = each.value.name
+  description = each.value.description
+  visibility  = each.value.visibility
 }
 
 module "branch_protection" {
-  source = "../../modules/github_branch_protection"
+  for_each = module.iac_tr_playground
+  source   = "../../modules/github_branch_protection"
 
-  repository_id = module.iac_tr_playground.node_id
+  repository_id = each.value.node_id
   pattern       = "main"
   review_count  = 1
 }

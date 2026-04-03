@@ -27,3 +27,12 @@ variable "github_push_users" {
   description = "List of users who can push to protected branches"
   type        = list(string)
 }
+
+variable "iac_tr_playground" {
+  description = "Map of the repositories desired"
+  type = map(object({
+    name        = string
+    description = string
+    visibility  = string
+  }))
+}
