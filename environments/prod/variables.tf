@@ -36,3 +36,8 @@ variable "iac_tr_playground" {
     visibility  = string
   }))
 }
+
+
+variable "region" {
+  type = string
+}

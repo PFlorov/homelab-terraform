@@ -20,3 +20,13 @@ output "node_id" {
     for k, repo in module.iac_tr_playground : k => repo.node_id
   }
 }
+
+output "instance_id" {
+  value = module.aws_ec2.instance_id
+}
+
+output "public_ip" {
+  value = module.aws_ec2.public_ip
+}
+
+

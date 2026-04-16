@@ -38,3 +38,6 @@ terraform.tfvars.json
 Thumbs.db
 .vscode/
 .idea/
+
+# AWS CREDS
+.aws/

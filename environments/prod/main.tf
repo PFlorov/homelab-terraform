@@ -28,3 +28,7 @@ module "branch_protection" {
   pattern       = "main"
   review_count  = 1
 }
+
+module "aws_ec2" {
+  source = "../../modules/aws_ec2"
+}
