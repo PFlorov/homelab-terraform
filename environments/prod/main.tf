@@ -32,3 +32,11 @@ module "branch_protection" {
 module "aws_ec2" {
   source = "../../modules/aws_ec2"
 }
+
+module "aws_s3_bucket" {
+  source = "../../modules/aws_s3"
+
+  bucket        = var.bucket
+  force_destroy = var.force_destroy
+  tags          = var.tags
+}

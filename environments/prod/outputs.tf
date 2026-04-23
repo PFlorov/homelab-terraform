@@ -29,4 +29,10 @@ output "public_ip" {
   value = module.aws_ec2.public_ip
 }
 
+output "id" {
+  value = module.aws_s3_bucket.id
+}
 
+output "arn" {
+  value = module.aws_s3_bucket.arn
+}

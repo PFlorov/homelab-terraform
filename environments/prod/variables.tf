@@ -41,3 +41,15 @@ variable "iac_tr_playground" {
 variable "region" {
   type = string
 }
+
+variable "tags" {
+  type = map(string)
+}
+
+variable "bucket" {
+  type = string
+}
+
+variable "force_destroy" {
+  type = bool
+}
